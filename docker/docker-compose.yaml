@@ -12,6 +12,6 @@ services:
     volumes:
        - /somepath/delta-sharing-server-0.2.0/conf/delta-sharing-server.yaml:/delta-sharing-server.yaml
     ports:
-      - "8080"
+      - "8080:8080"
 
     command: -v -- --config /delta-sharing-server.yaml
