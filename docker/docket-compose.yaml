@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  deltashare:
+    hostname: deltashare
+    image: deltaio/delta-sharing-server:0.4.0
+    environment:
+      AWS_ACCESS_KEY_ID: REPLACEDREPLACEDREPL
+      AWS_SECRET_ACCESS_KEY: replacedreplacedreplacedreplacedre
+      JAVA_OPTS: "-Dfs.s3.awsAccessKeyId=REPLACEDREPLACEDREPL -Dfs.s3.awsSecretAccessKey=replacedreplacedreplacedreplacedre"
+    volumes:
+       - /somepath/delta-sharing-server-0.2.0/conf/delta-sharing-server.yaml:/delta-sharing-server.yaml
+    ports:
+      - "8080"
+
+    command: -v -- --config /delta-sharing-server.yaml

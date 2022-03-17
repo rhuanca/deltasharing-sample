@@ -1,0 +1,34 @@
+version: 1
+shares:
+- name: "beeswax"
+  schemas:
+  - name: "raw"
+    tables:
+    - name: "wins"
+      location: "s3a://somebucket/somepath/bx_data/"
+  - name: "performance"
+    tables:
+    - name: "performance_by_campaign"
+      location: "s3a://somebucket/somepath/bx_performance_by_campaign"
+- name: "zyptv"
+  schemas:
+    - name: "campaigns"
+      tables:
+        - name: "counts"
+          location: "s3a://somebucket/somepath/campaign-counts/data/"
+
+host: "127.0.0.1"
+port: 8080
+
+endpoint: "/delta-sharing"
+
+preSignedUrlTimeoutSeconds: 900
+
+deltaTableCacheSize: 10
+
+stalenessAcceptable: false
+
+evaluatePredicateHints: true
+
+authorization:
+  bearerToken: 123456789
